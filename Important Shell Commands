@@ -1,0 +1,5 @@
+1) ctrl + L = Clear the terminal
+2) ctrl + D = log out
+3) ctrl + Y = paste
+4) !! = repeat last command
+5) ctrl + z = stops the execution of current command (resume with fg in freground or bg in background)
