@@ -3,3 +3,34 @@
 3) ctrl + Y = paste
 4) !! = repeat last command
 5) ctrl + z = stops the execution of current command (resume with fg in freground or bg in background)
+6) cat
+    a) display contents of a file "cat etc/passwd"
+    b) display contents of multiple files " cat etc/passwd etc/shadow"
+    c) Create a file with cat command: "cat >file_name" ; type the contents of the file and when done, then press "ctrl-d" to 
+      save it and exit.
+    d) display line numbers: "cat -n <file_name>
+    e) redirecting file contents: "cat test test1 test2 > test3"
+    f) appending : cat test >> test1
+7) ls
+    a) S - sort biggest size files or folders first
+    b) R - recursively
+    c) r - reverse any sort
+    d) Sr - sort by smallest size first
+    e) h - human readable
+8) mkdir
+    a) mkdir -p f1/f2/f3
+9) cd
+    a) cd .. - one level up
+    b) cd ../.. - 2 levels up
+    c) cd - home directory
+    d) cd ~ - home directory
+10) more etc/passwd
+11) less etc/passwd
+12) mv 
+    a)    "mv tmp/mikeposner /root" - moving files
+    b) renaming files - "mv <old_name> <new_name>" : here the new name should not already exist. 
+    Else the contents gets copied to new_name
+13) cp - copy
+    a) cp /root/hozier /tmp
+    b) cp hozier_tmp hozier : hozier gets overwritten with the contents of hozier_tmp
+    
