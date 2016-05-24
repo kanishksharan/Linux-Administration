@@ -33,3 +33,10 @@
         password this many days in advance.
     f)[blank]The last three fields are used to denote days before the account is made inactive, days since the Epoch when the 
         account expires. The last field is unused.
+
+4. Linux treats everything as a file, even hardware or peripheral devices. "/dev/"
+5. "/etc/" - system related configuration files
+6. "/bin" - executables and commands
+7. "/opt" - software packages or programs are installed
+8. "/var" - log files and printer spools
+9. 
