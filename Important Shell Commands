@@ -33,4 +33,7 @@
 13) cp - copy
     a) cp /root/hozier /tmp
     b) cp hozier_tmp hozier : hozier gets overwritten with the contents of hozier_tmp
-    
+14) rm - remove file: you cannot remove a non-empty directory.
+    a) rm /tmp/hozier_tmp
+    b) rm -rf /tmp/demo
+    c) remove an empty directory: rmdir /tmp/demo2
