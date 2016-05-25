@@ -1,0 +1,29 @@
+GREP : Globally search a Regular Expression and Print
+
+General Syntax: grep "literal string" <filename>
+1. Searching for a string in a single file:
+    a) grep "version 2" /root/hozier
+2. Searching for the string in multiple files
+    b) grep "version 2" /root/hozier*
+3. Case insensitive Search (by default grep is case sensitive)
+    c) grep -i "This" /root/hozier*
+4. Using it with regulr expressions
+    d) grep '"*' /root/hozier : starting from " (double quotes) and anything as indicated by "*" asterisk
+5. Search for the exact word
+    e) grep -iw "word" /root/hozier
+6. Retrive n number of lines after a match
+    f) grep -A 3 -i "word" /root/hozier
+7. Retrieve n number of lines before a match
+    g) grep -B 3 -i "word" /root/hozier
+8) Rerieve n number of lines around a match
+    h) grep -C 3 -i "word" /root/hozier
+9) Search recursively
+    i) grep -r "word"* : this will search for the word "word" in recursive dirs, within the pwd, as well
+10) Count the number of occurrence
+    j) grep -c "word" * : this will search in the current directory only
+    k) grep -rc "word" *: same as above but in recursive dirs as well
+11) Count the number of non-occurrences
+    l) grep -v "word"* : in the current directory
+12) Display on those files that match the given pattern
+    m) grep -I "regular expression"* 
+    
