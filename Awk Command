@@ -1,0 +1,17 @@
+1. To print the entire content of a file:
+    a) awk '{ print }' /root/lab/awkey
+2. Print 1st columnof every line. By deafult awk separates by white space.
+    b) awk '{ print $1 }' /root/lab/awkey : Here "$1" represents the 1st column.
+3. Print multiple columns at once:
+    c) awk '{ print $1,$2 }' /root/lab/awkey
+4. Return everyline that returns "word"
+    d) awk '/16p/ { print }' /root/lab/awkey
+    e) awk '/16p/ {print $1}' /root/lab/awkey
+5. Return all those lines that contain numbers:
+    f) awk '/[0-9] {print $1}' /root/lab/awkey
+6) Return line that begins with a number
+    g) awk '/^[0-9]/ {print $1}' /root/lab/awkey
+7) Return every line that ends with a number
+    h) awk '/[0-9]$/ {print $1}' /root/lab/awkey
+8) If commands :
+    i) awk '{ if ($1 ~ /^12/) print }' /root/lab/awkey: if 1st column begins with "12m"
