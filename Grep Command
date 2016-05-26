@@ -26,4 +26,8 @@ General Syntax: grep "literal string" <filename>
     l) grep -v "word"* : in the current directory
 12) Display on those files that match the given pattern
     m) grep -I "regular expression"* 
+13) Display n number of lines that matches the description
+    n) grep -n <file_name>
+14) Returns line containing at leats one number
+    o) grep [0-9] <file_name>
     
