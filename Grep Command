@@ -30,4 +30,8 @@ General Syntax: grep "literal string" <filename>
     n) grep -n <file_name>
 14) Returns line containing at leats one number
     o) grep [0-9] <file_name>
+
+15) Searches the package database for program named, 'grep':
+    a) rpm -qa | grep grep
+    rpm -qa |grep -i xorg | wc -l :This returns the number of packages with 'xorg' in their names.
     
