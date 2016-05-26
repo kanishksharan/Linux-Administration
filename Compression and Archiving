@@ -1,0 +1,15 @@
+1. .tar is used to archive many files into one (no compression)
+2. .gz (gzip) is used to compress and decompress files
+
+All the detailed theory is mentioned in my notes, refer to it.
+
+1. tar cf /root/Desktop/archive_1.tar  /root/lab/{awkey,hozier,hozier_tmp} : create, file
+2. tar tf /root/Desktop/archive_1.tar : list = t, f = file: 
+3. tar xf /root/Desktop/archive_1.tar : x = extract, f = file :file will be unarchived at the pwd
+4. tar tfv /root/Desktop/archive_1.tar : v = verbose
+
+ Note : gzip/bzip work on single files only and not multiple files
+
+1. gzip /root/Desktop/archive_1
+2. tar czf /root/Desktop/zipped.gz {awkey,hozier,hozier_tmp} : z = compress: archived and compressed
+
