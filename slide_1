@@ -58,3 +58,24 @@
         b) "n" is the previous runlevel and "5" is the cureent runlevel
         c) Change the current runlevel: "init 3": Changes the current runlevel to 3
         d) To permanently change the runlevel: "etc/inittab" file
+        e) Runlevel specific init scripts are available at "etc/rcX.d", where "X" denotes the runlevel number
+                ex: for runlevel 5: etc/rc5.d
+
+12. Services
+        a) Services are stored in : etc/init.d : Services always run in the background.
+        b) Example command: "service network restart"
+        c) service <service_name> status
+        d) service <service_name> start
+        e) service <service_name> stop
+13. Ntsysv
+        a) Manages service in the current runlevel: 
+        b) located at usr/sbin/ntsysv
+        c) command "ntsysv": example: "ntsysv <runlevel number>"
+
+14. RC directories:
+        a) in /etc/rcX.d: All the dirs are preceded by either "S" or "K"
+        b) "S" denotes start the service and should use the command "start"
+        c) "K" denotes kill the service and should always use the command "stop"
+        d) The 2 digit number after "K" or "S" denotes the order which the script should be executed.
+        e) When an init command enters a runlevel: It first kills all the processes with the execution order and then 
+                Starts the processes with in the execution order.
