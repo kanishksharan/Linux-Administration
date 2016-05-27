@@ -79,3 +79,12 @@
         d) The 2 digit number after "K" or "S" denotes the order which the script should be executed.
         e) When an init command enters a runlevel: It first kills all the processes with the execution order and then 
                 Starts the processes with in the execution order.
+
+15. Chkconfig: Modifies the chkconfig (On|Off|Reset) for a particular service, for a particular runlevel. Note refer to 
+                service name as they're mentioned in "/etc/init.d"
+        a) chkconfig [level] name <on\off\reset>
+        b) "chkconfig --list xinetd": this returns the runlevel environment for xinetd
+        c) In the result of the above command: the items listed as "off" have "K"  scripts and "On" have "S"
+        d) "chkconfig --level 35 xinetd off": Turns off the xinetd service in runlevels 3 and 5
+        e) "chkconfig xinetd on": turns on the xinetd service in all the runlevels
+        
