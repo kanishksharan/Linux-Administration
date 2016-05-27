@@ -44,4 +44,17 @@
         b) First process is loaded from "init"
         c) Services are started by "init"
         d) UPstart : theconfig files for upstart is at : etc/init : It is a series of bootup scripts
-        e) 
+
+10. System Initialization run-levels
+        a) 0 - shutdown
+        b) 1 - Single user mode
+        c) 2 - Multiuser without n/w and GUI
+        d) 3 - Multiuser with n/w and without GUI
+        e) 4 - Not used
+        f) 5 - Graphical multiuser with N/W
+        g) 6 - Restarting
+11. How to check current Runlevels:
+        a) runlevel
+        b) "n" is the previous runlevel and "5" is the cureent runlevel
+        c) Change the current runlevel: "init 3": Changes the current runlevel to 3
+        d) To permanently change the runlevel: "etc/inittab" file
