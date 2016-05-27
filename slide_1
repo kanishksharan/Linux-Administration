@@ -39,4 +39,9 @@
 6. "/bin" - executables and commands
 7. "/opt" - software packages or programs are installed
 8. "/var" - log files and printer spools
-9. 
+9. GRUB
+        a) Grub config file: /boot/grub/grub.conf
+        b) First process is loaded from "init"
+        c) Services are started by "init"
+        d) UPstart : theconfig files for upstart is at : etc/init : It is a series of bootup scripts
+        e) 
