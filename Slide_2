@@ -1,0 +1,22 @@
+How to hack into the root account by changing the passwd:
+1. When the times screen appears (5,4,3,2,1) then press "e"
+2. Then on the kernel menu (usually the second menu option) press "e"
+3. Once inside the kernel menu type "single" enter and then come out of there by pressing escape.
+4. Now once again on the kernel screen hit "b" for boot
+5. Once on the terminal "passwd"
+6. Enter password and you have successfully changed the password for the "root" account.
+
+2. How to protect yourself from being hacked in the above way:
+  1) edit the file /etc/inittab
+  2) Just above the "initdefault" line, enter this line of code:
+      "su:S:wait:/sbin/sulogin", save and then exit
+3. Shutdown command
+    1) shutdown -h +10 : shutdown halt for 10 minutes
+    2) shutdown -r : restart
+    3) shutdown -c : cancel shutdown command
+4. Rebbot command:
+    1) reboot -p : shutdown
+    2) reboot -f : forcibly
+5. RPM Packages:
+    1) rpm format: Packagename.version.release.architect.rpm
+    2) 
