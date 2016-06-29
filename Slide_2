@@ -19,4 +19,31 @@ How to hack into the root account by changing the passwd:
     2) reboot -f : forcibly
 5. RPM Packages:
     1) rpm format: Packagename.version.release.architect.rpm
-    2) 
+    2) It provides package management:
+        1) Instaal
+        2) Remove/Uninstall
+        3) Upgrade
+        4) Query
+        5) Verify
+6. Updating a kernel RPM:
+    1) Check the kernel version: "uname -a"
+        <OS> <Fully Qualified domain Name (FQDN)> <(2.6) refers to the major version,(.32) refers to the minor version,if 
+        the minor version is an odd number 
+        then it's a Beta version, anything after the minor version number indcates that the kernel has been patched 
+        by the distributor> <Date and time, the kernel was compiled>
+    2) Reveal installed versions: 'rpm -qa | grep -i kernel'
+    3) Check the kernel version with 'gedit /etc/grub.conf'. The same file is also located at /boot/grub/grub.conf
+    4) Install the new version: 'rpm -ivh kernel-2.6.18-398.el5.i686.rpm
+    5) Once installed the '/etc/grub/grub.conf' will be updated with the new version.
+    6) 'rpm -qa' Queries all the all the installed rpms
+    7) 'rpm -qa |wc -l' count the total number of installed packages
+    8) 'rpm -qa | grep -i ftp' returns all the installed packages containing 'ftp'
+    9) 'rpm -qi firefox' : gives the details of the packages firefox. 'qi means query info'
+    10) 'rpm -qf /usr/bin/ftp' : Gives which rpm package is given file associated with. 'qf = query file'
+    11) 'rpm -ql ftp' : Gives all the related files for that package (ftp)
+    12) 'rpm -Va':Verifies all documents, returning info only if there are discrepancies from the original installation.
+    13) 'rpm -Va /usr/bin/vsftpd': This command displays only those files that have been modified since installation. Check slide #
+          56.
+    14) 'rpm -ivh <package>' : install, verbose, human
+    15) 'rpm -Uvh <package>' : Update, verbose, human
+    16) 'rpm -Fvh *.rpm': Update all the installed rpms
