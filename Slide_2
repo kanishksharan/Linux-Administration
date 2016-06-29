@@ -47,3 +47,28 @@ How to hack into the root account by changing the passwd:
     14) 'rpm -ivh <package>' : install, verbose, human
     15) 'rpm -Uvh <package>' : Update, verbose, human
     16) 'rpm -Fvh *.rpm': Update all the installed rpms
+    17) 'rpm -ev createrepo' removes a package
+    18) 'rpm -ev -nodeps createrepo *.rpm' : no dependencies
+    
+7.  YUM (Yellowdog Updater Modified):
+        1) /etc/yum.conf : yum config and utilities
+        2) /etc/yum.repos.d  : In the results, ".repo" files. These files have the format
+              [label-for-repo], name,baseurl,gpgcheck,enabled,gpgkey
+        3) gpgcheck: 0 = disable, 1 = enable (default)
+        4) enabled : 0 = disable (disables the repository and doesn not search for repositories when installing or performing updates) and 1 = Enable
+        5) gpgkey : should be disabled when gpgcheck = 0
+        6) Installation and Setup:
+            1) rpm -ivh createrepo*.rpm : Install create repo package
+            2) Follow the steps to create local yum repositories:
+                1) Copy all packages from cd/dvd to local directory
+                2) createrepo -d /repos/cent : This cmd creates necessary metadata for mentioned repo and sqllite for yum to speed up its operations
+                3) 'yum clean all' : Cleans the yum cache
+                4) 'yum list all' : this cmd lists all the 'enabled' repos. Even the user created ones are listed.
+            3) Install yum packages: 'install yum ftp'
+            4) Update packages: ' yum update ftp'
+            5) Remove packages: ' yum remove ftp'
+            6) Search package: 'yum search ftp'
+            7) Package Info: 'yum info httpd'
+            8) List packages containing a term: 'yum list ftp'
+  8. YUM installation through "http' protocol: Resume from here---
+        1) 
