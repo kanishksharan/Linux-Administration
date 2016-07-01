@@ -1,0 +1,7 @@
+1) date
+2) cal
+3) df -h : To see the current amount of free space on your disk drives, enter df:
+4) free : Likewise, to display the amount of free memory, enter the free
+          command:
+5) ls ~ /root/Documents
+6) 
