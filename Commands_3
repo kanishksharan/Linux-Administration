@@ -1,0 +1,137 @@
+1) STANDARD INPUT
+"""
+I/O redirection allows us to redefine where standard output goes. To
+redirect standard output to another file instead of the screen, we use the >
+redirection operator followed by the name of the file. Why would we want
+to do this? It’s often useful to store the output of a command in a file. For
+example, we could tell the shell to send the output of the ls command to
+the file ls-output.txt instead of the screen:
+
+[me@linuxbox ~]$ ls -l /usr/bin > ls-output.txt
+"""
+
+2) STANDARD ERROR (stderr)
+"""
+We received an error message. This makes sense because we specified
+the nonexistent directory /bin/usr, but why was the error message displayed
+on the screen rather than being redirected to the file ls-output.txt ? The answer
+is that the ls program does not send its error messages to standard output.
+Instead, like most well-written Unix programs, it sends its error messages to
+standard error. Since we redirected only standard output and not standard
+error, the error message was still sent to the screen.
+"""
+
+3) In fact, if we ever
+need to actually truncate a file (or create a new, empty file) we can use a
+trick like this:
+
+[me@linuxbox ~]$ > ls-output.txt
+
+Simply using the redirection operator with no command preceding it
+will truncate an existing file or create a new, empty file.
+
+4) Appending to a file:
+  [me@linuxbox ~]$ ls -l /usr/bin >> ls-output.txt
+  Using the >> operator will result in the output being appended to the
+  file. If the file does not already exist, it is created just as though the > operator
+  had been used.
+  
+5) Redirecting standard error
+  "[me@linuxbox ~]$ ls -l /bin/usr 2> ls-error.txt"
+
+6) Redirecting Standard Output and Standard Error to One File
+  Old Version and my version:
+  "ls -lah /usr/local/etc /usr/etc > std_op_err.txt 2>&1
+  
+  Recent versions of bash provide a second, more streamlined method for
+  performing this combined redirection:
+  "[me@linuxbox ~]$ ls -l /bin/usr &> ls-output.txt"
+  
+7) 
+"""
+Disposing of Unwanted Output
+Sometimes silence really is golden, and we don’t want output from a command—
+we just want to throw it away. This applies particularly to error and
+status messages. The system provides a way to do this by redirecting output
+to a special file called /dev/null. This file is a system device called a bit bucket,
+which accepts input and does nothing with it. To suppress error messages
+from a command, we do this:
+
+[me@linuxbox ~]$ ls -l /bin/usr 2> /dev/null
+"""
+
+8) 
+"""
+Say we have downloaded a large file that
+has been split into multiple parts (multimedia files are often split this way on
+Usenet), and we want to join them back together. If the files were named
+
+"movie.mpeg.001 movie.mpeg.002 ... movie.mpeg.099"
+
+we could rejoin them with this command:
+
+"[me@linuxbox ~]$ cat movie.mpeg.0* > movie.mpeg"
+
+Since wildcards always expand in sorted order, the arguments will be
+arranged in the correct order.
+"""
+
+9) Pipe operator
+  [me@linuxbox ~]$ ls -l /usr/bin | less
+
+10) Filter
+  "[me@linuxbox ~]$ ls /bin /usr/bin | sort | less"
+  Since we specified two directories (/bin and /usr/bin), the output of ls
+  would have consisted of two sorted lists, one for each directory. By including
+  sort in our pipeline, we changed the data to produce a single, sorted list.
+  
+11) [me@linuxbox ~]$ ls /bin /usr/bin | sort | uniq
+  """
+  The uniq command is often used in conjunction with sort. uniq accepts a
+  sorted list of data from either standard input or a single filename argument
+  (see the uniq man page for details) and, by default, removes any duplicates
+  from the list. So, to make sure our list has no duplicates (that is, any programs
+  of the same name that appear in both the /bin and /usr/bin directories)
+  we will add uniq to our pipeline:
+  """
+
+12) 
+    """
+    wc—Print Line, Word, and Byte Counts
+    The wc (word count) command is used to display the number of lines,
+    words, and bytes contained in files. For example:
+    
+    [me@linuxbox ~]$ wc ls-output.txt
+    7902 64566 503634 ls-output.txt
+    """
+
+13) Grep:
+    ls -lah /home/kanishk/Desktop/python_prog/automate_c10 | grep -i .py
+
+14) tail -n 5 prog1.py
+    head -n 7 prog1.py
+
+15) 
+    """
+    tail has an option that allows you to view files in real time. This is useful
+    for watching the progress of log files as they are being written. In the
+    following example, we will look at the messages file in /var/log. Superuser
+    privileges are required to do this on some Linux distributions, because the
+    
+    /var/log/messages file may contain security information.
+    [me@linuxbox ~]$ tail -f /var/log/messages
+    """
+
+16) 
+    """
+    tee—Read from Stdin and Output to Stdout and Files
+    In keeping with our plumbing analogy, Linux provides a command called
+    tee which creates a “T” fitting on our pipe. The tee program reads standard
+    input and copies it to both standard output (allowing the data to continue
+    down the pipeline) and to one or more files. This is useful for capturing a
+    pipeline’s contents at an intermediate stage of processing. Here we repeat
+    one of our earlier examples, this time including tee to capture the entire
+    directory listing to the file ls.txt before grep filters the pipeline’s contents:
+    """
+    
+    "ls /usr/local | tee tee.txt"
